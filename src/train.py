@@ -5,6 +5,13 @@ Menggunakan pendekatan klasifikasi untuk memprediksi arah harga emas bulan depan
 
 Sesuai kode Kaggle notebook (struktur identik, akurasi mirip).
 
+Catatan Metrik Historis (Versi Regresi Sebelumnya):
+Metrik Evaluasi Kinerja model diukur menggunakan tiga metrik regresi standar:
+- RMSE (Root Mean Squared Error): Menunjukkan rata-rata penyimpangan prediksi terhadap nilai asli dalam satuan Dolar.
+- MAE (Mean Absolute Error): Menunjukkan rata-rata selisih absolut antara prediksi dan nilai aktual.
+- R-Squared (R²): Menunjukkan seberapa besar persentase varians harga emas yang dapat dijelaskan oleh model.
+(Saat ini kode berjalan sebagai klasifikasi dan dievaluasi menggunakan Accuracy & AUC).
+
 Pipeline:
     Step 1 : Load & EDA
     Step 2 : Feature Engineering (target creation)
