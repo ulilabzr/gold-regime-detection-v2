@@ -1,0 +1,6 @@
+# streamlit entry point — diperlukan oleh Streamlit Community Cloud
+# agar tahu file mana yang harus dijalankan
+
+[server]
+headless = true
+port = 8501

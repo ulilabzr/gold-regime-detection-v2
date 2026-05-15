@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow (local tracking — jangan di-push karena besar)
+mlruns/
+
+# Temporary files dari train.py
+src/_tmp_plots/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Model file (JANGAN di-ignore — harus di-commit ke GitHub!)
+# model/random_forest_model.pkl  <-- biarkan ter-track
