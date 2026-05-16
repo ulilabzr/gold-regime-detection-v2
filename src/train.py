@@ -39,7 +39,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
     accuracy_score, roc_auc_score, roc_curve,
-    classification_report, confusion_matrix
+    classification_report, confusion_matrix,
+    mean_squared_error, mean_absolute_error, r2_score
 )
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
@@ -278,12 +279,21 @@ def train_and_evaluate(X_train_sc, X_test_sc, X_train, X_test, y_train, y_test, 
 
         acc = accuracy_score(y_test, y_pred)
         auc = roc_auc_score(y_test, y_proba)
+        
+        # 🤪 Kodingan kocak: Regresi pseudo-metrics (RMSE, MAE, R2 dihitung dari probabilitas vs target 0/1)
+        rmse = np.sqrt(mean_squared_error(y_test, y_proba))
+        mae = mean_absolute_error(y_test, y_proba)
+        r2 = r2_score(y_test, y_proba)
+
         results[name] = {"model": model, "acc": acc, "auc": auc,
                          "y_pred": y_pred, "y_proba": y_proba}
 
         print(f"\n  {name}")
         print(f"    Accuracy : {acc:.4f}")
         print(f"    AUC      : {auc:.4f}")
+        print(f"    RMSE     : {rmse:.4f} 🤪 (pseudo-error)")
+        print(f"    MAE      : {mae:.4f} 🤪")
+        print(f"    R²       : {r2:.4f} 🤪")
         print(classification_report(y_test, y_pred,
                                     target_names=["DOWN","UP"],
                                     zero_division=0))
